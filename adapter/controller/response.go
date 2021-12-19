@@ -3,6 +3,7 @@ package controller
 import (
 	"encoding/json"
 	"fmt"
+
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/golang/glog"
 )
@@ -34,6 +35,7 @@ func commonHeaders() map[string]string {
 
 // Response200 JSONを含めた200レスポンス
 func Response200(body interface{}) events.APIGatewayProxyResponse {
+	// 構造体をjsonに格納している
 	b, err := json.Marshal(body)
 	if err != nil {
 		return Response500(err)
